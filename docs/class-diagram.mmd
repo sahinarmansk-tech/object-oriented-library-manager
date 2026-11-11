@@ -1,0 +1,56 @@
+classDiagram
+    class Book {
+      -string id_
+      -string title_
+      -string author_
+      -string category_
+      -int publicationYear_
+      -int totalCopies_
+      +getId() string
+      +getTitle() string
+      +getAuthor() string
+      +getCategory() string
+      +getPublicationYear() int
+      +getTotalCopies() int
+      +matches(query) bool
+    }
+    class Member {
+      -string id_
+      -string name_
+      -string email_
+      +getId() string
+      +getName() string
+      +getEmail() string
+    }
+    class Loan {
+      -string id_
+      -string bookId_
+      -string memberId_
+      -string issueDate_
+      -string dueDate_
+      -bool returned_
+      -string returnDate_
+      +getId() string
+      +isReturned() bool
+      +markReturned(returnDate) void
+    }
+    class LibraryManager {
+      -string dataFile_
+      -vector~Book~ books_
+      -vector~Member~ members_
+      -vector~Loan~ loans_
+      +loadData() bool
+      +run() void
+      -addBook() void
+      -registerMember() void
+      -issueBook() void
+      -returnBook() void
+      -searchBooks() void
+      -showAvailability() void
+      -saveData() bool
+    }
+    LibraryManager "1" o-- "0..*" Book : catalogue
+    LibraryManager "1" o-- "0..*" Member : registry
+    LibraryManager "1" o-- "0..*" Loan : loan history
+    Loan "0..*" --> "1" Book : references
+    Loan "0..*" --> "1" Member : references

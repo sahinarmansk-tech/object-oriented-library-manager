@@ -1,0 +1,11 @@
+LIBRARY_MANAGER_DATA_V1
+BOOK "B001" "The Pragmatic Programmer" "Andrew Hunt and David Thomas" "Software" 1999 1
+BOOK "B002" "Clean Code" "Robert C Martin" "Software" 2008 1
+BOOK "B003" "Introduction to Algorithms" "Thomas H Cormen et al" "Computer Science" 2022 1
+BOOK "B004" "The Design of Everyday Things" "Don Norman" "Design" 2013 1
+BOOK "B005" "Deep Work" "Cal Newport" "Productivity" 2016 1
+BOOK "B006" "Computer Networks" "Andrew S Tanenbaum and David Wetherall" "Networking" 2021 1
+MEMBER "M014" "Sample Member 014" "member014@example.com"
+MEMBER "M022" "Sample Member 022" "member022@example.com"
+LOAN "L001" "B002" "M014" "2026-08-01" "2026-09-05" 0 ""
+LOAN "L002" "B004" "M022" "2026-08-01" "2026-08-29" 0 ""

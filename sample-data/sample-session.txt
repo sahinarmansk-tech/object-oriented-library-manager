@@ -1,0 +1,25 @@
+Illustrative session (starting with the included data file)
+
+Loaded 6 book(s), 2 member(s), and 2 loan record(s).
+
+========================================
+        OBJECT-ORIENTED LIBRARY
+========================================
+1. Add a book
+2. Register a member
+3. Issue a book
+4. Return a book
+5. Search books
+6. Check book availability
+7. List all books
+8. List active loans
+9. Save and exit
+Select an option (1-9): 6
+Book ID: B002
+Clean Code — Robert C Martin
+Total copies: 1
+On loan: 1
+Available now: 0
+
+Select an option (1-9): 9
+Library data saved. Goodbye!

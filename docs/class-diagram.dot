@@ -1,0 +1,39 @@
+digraph LibraryClassDiagram {
+  graph [rankdir=LR, bgcolor="white", pad="0.25", nodesep="0.45", ranksep="0.75", label="Object-Oriented Library Manager — Class Diagram", labelloc=t, fontsize=20, fontname="Arial"];
+  node [shape=plain, fontname="Arial"];
+  edge [fontname="Arial", fontsize=10, color="#475569", arrowsize=0.8];
+
+  Book [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7">
+      <TR><TD BGCOLOR="#dbeafe"><B>Book</B></TD></TR>
+      <TR><TD ALIGN="LEFT">- id_ : string<BR ALIGN="LEFT"/>- title_ : string<BR ALIGN="LEFT"/>- author_ : string<BR ALIGN="LEFT"/>- category_ : string<BR ALIGN="LEFT"/>- publicationYear_ : int<BR ALIGN="LEFT"/>- totalCopies_ : int</TD></TR>
+      <TR><TD ALIGN="LEFT">+ getId() : string<BR ALIGN="LEFT"/>+ matches(query) : bool</TD></TR>
+    </TABLE>>];
+
+  Member [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7">
+      <TR><TD BGCOLOR="#dcfce7"><B>Member</B></TD></TR>
+      <TR><TD ALIGN="LEFT">- id_ : string<BR ALIGN="LEFT"/>- name_ : string<BR ALIGN="LEFT"/>- email_ : string</TD></TR>
+      <TR><TD ALIGN="LEFT">+ getId() : string<BR ALIGN="LEFT"/>+ getName() : string<BR ALIGN="LEFT"/>+ getEmail() : string</TD></TR>
+    </TABLE>>];
+
+  Loan [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7">
+      <TR><TD BGCOLOR="#fef3c7"><B>Loan</B></TD></TR>
+      <TR><TD ALIGN="LEFT">- id_ : string<BR ALIGN="LEFT"/>- bookId_ : string<BR ALIGN="LEFT"/>- memberId_ : string<BR ALIGN="LEFT"/>- issueDate_ : string<BR ALIGN="LEFT"/>- dueDate_ : string<BR ALIGN="LEFT"/>- returned_ : bool<BR ALIGN="LEFT"/>- returnDate_ : string</TD></TR>
+      <TR><TD ALIGN="LEFT">+ isReturned() : bool<BR ALIGN="LEFT"/>+ markReturned(date) : void</TD></TR>
+    </TABLE>>];
+
+  LibraryManager [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7">
+      <TR><TD BGCOLOR="#ede9fe"><B>LibraryManager</B></TD></TR>
+      <TR><TD ALIGN="LEFT">- dataFile_ : string<BR ALIGN="LEFT"/>- books_ : vector&lt;Book&gt;<BR ALIGN="LEFT"/>- members_ : vector&lt;Member&gt;<BR ALIGN="LEFT"/>- loans_ : vector&lt;Loan&gt;</TD></TR>
+      <TR><TD ALIGN="LEFT">+ loadData() : bool<BR ALIGN="LEFT"/>+ run() : void<BR ALIGN="LEFT"/>- addBook() : void<BR ALIGN="LEFT"/>- issueBook() : void<BR ALIGN="LEFT"/>- returnBook() : void<BR ALIGN="LEFT"/>- searchBooks() : void<BR ALIGN="LEFT"/>- saveData() : bool</TD></TR>
+    </TABLE>>];
+
+  LibraryManager -> Book [dir=both, arrowtail=odiamond, arrowhead=none, label="catalogue 0..*"];
+  LibraryManager -> Member [dir=both, arrowtail=odiamond, arrowhead=none, label="registry 0..*"];
+  LibraryManager -> Loan [dir=both, arrowtail=odiamond, arrowhead=none, label="loan history 0..*"];
+  Loan -> Book [arrowhead=vee, label="references 1"];
+  Loan -> Member [arrowhead=vee, label="references 1"];
+}
