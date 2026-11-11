@@ -1,0 +1,9 @@
+# Build outputs
+library_manager
+library_manager.exe
+*.o
+*.obj
+
+# Temporary persistence files
+*.tmp
+*.bak
